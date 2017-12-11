@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20171211163726) do
     t.string "category"
     t.decimal "price"
     t.string "accomodation"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "author"
     t.text "content"
     t.integer "rating"
+    t.integer "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
