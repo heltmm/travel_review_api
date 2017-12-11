@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
+    @destination = Destination.find(params[:destination_id])
+    @reviews = @destination.reviews
     json_response(@reviews)
   end
 
@@ -10,13 +11,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params)
+    @review = Review.create!(review_params)
     json_response(@review)
   end
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
+    @review.update!(review_params)
   end
 
   def destroy
@@ -25,9 +26,7 @@ class ReviewsController < ApplicationController
   end
 
   private
-  def json_response(object, status = :ok)
-    render json: object, status: status
-  end
+
 
   def review_params
     params.permit(:author, :content, :rating)
