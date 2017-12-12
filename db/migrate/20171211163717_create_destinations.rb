@@ -5,7 +5,7 @@ class CreateDestinations < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :category
       t.decimal :price
-      t.string :accomodations
+      t.string :accommodations
       t.string :name
       t.timestamps
     end

@@ -17,5 +17,5 @@ describe Destination, 'column_specification' do
   it { should have_db_column(:city).of_type(:string) }
   it { should have_db_column(:price).of_type(:decimal) }
   it { should have_db_column(:category).of_type(:string) }
-  it { should have_db_column(:accomodation).of_type(:string) }
+  it { should have_db_column(:accommodations).of_type(:string) }
 end

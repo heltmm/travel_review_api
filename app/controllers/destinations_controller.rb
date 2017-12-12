@@ -10,23 +10,32 @@ class DestinationsController < ApplicationController
   end
 
   def create
-    @destination = Destination.create!(destination_params)
-    json_response(@destination)
+    if @destination = Destination.create!(destination_params)
+       json_response(@destination, :created)
+    end
   end
 
   def update
     @destination = Destination.find(params[:id])
-    @destination.update!(destination_params)
+    if @destination.update!(destination_params)
+      render status: 200, json: {
+        message: "Your Destination has been updated successfully."
+      }
+    end
   end
 
   def destroy
     @destination = Destination.find(params[:id])
-    @destination.destroy
+    if @destination.destroy
+      render status: 200, json: {
+        message: "Your Destiation has been successfully removed."
+      }
+    end
   end
 
   private
 
   def destination_params
-    params.permit(:country, :city, :category, :price, :accommodation)
+    params.permit(:country, :city, :category, :price, :accommodations, :name)
   end
 end

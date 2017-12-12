@@ -9,7 +9,7 @@ module HandlingExceptions
       json_response({ message: exception.message }, :not_found)
     end
     rescue_from ActiveRecord::RecordInvalid do |exception|
-      json_response({ message: exception.message }, :record_invalid)
+      json_response({ message: exception.message }, :unprocessable_entity)
     end
   end
 end

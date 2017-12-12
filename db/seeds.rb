@@ -13,7 +13,7 @@ class Seed
         city: Faker::Address.city,
         category: Faker::Commerce.material,
         price: Faker::Number.decimal(2),
-        accomodations: Faker::Commerce.department(5),
+        accommodations: Faker::Commerce.department(5),
         name: Faker::Address.community
       )
     end
